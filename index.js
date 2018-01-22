@@ -1,26 +1,25 @@
-
-require('dotenv').config();
 const OneSky = require('./onesky');
 const fs = require('fs');
 const readline = require('readline')
 const async = require('async');
+const config = require('./config.json');
 
 
-const projects = process.env.PROJECTS
+const projects = config.PROJECTS
     .split(',').map(s => s.trim(s)).map(s => parseInt(s));
 const onesky = new OneSky(
-    process.env.API_KEY,
-    process.env.API_SECRET
+    config.API_KEY,
+    config.API_SECRET
 )
 
 const toClient = new OneSky(
-    process.env.API_KEY,
-    process.env.API_SECRET
+    config.API_KEY,
+    config.API_SECRET
 )
 
 let newProjectGroupName;
-const baseLang = process.env.BASE_LANG;
-const fileFormat = process.env.FILE_FORMAT;
+const baseLang = config.BASE_LANG;
+const fileFormat = config.FILE_FORMAT;
 
 const getProjectFiles = async (projectId) => {
 

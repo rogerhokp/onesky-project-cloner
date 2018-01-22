@@ -118,6 +118,9 @@ module.exports = class OneSky {
                         } else if (resp.headers['content-description'] == 'File Transfer') {
                             const path = `${filesDir}/${projectId}-${locale}`;
                             const filePath = `${path}/${file}`;
+                            if (!fs.existsSync(filesDir)) {
+                                fs.mkdirSync(filesDir);
+                            }
                             if (!fs.existsSync(path)) {
                                 fs.mkdirSync(path);
                             }

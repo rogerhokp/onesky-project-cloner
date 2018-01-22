@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-bin": "pkg -t node8-macos-x64 --out-path build/ index.js"
   },
   "author": "",
   "license": "ISC",
