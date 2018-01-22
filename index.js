@@ -111,10 +111,6 @@ const exec = (async () => {
             console.log(`Totally downloaded ${noOfFile} files`);
         }
 
-        // return;
-        // console.log(projectFiles);
-
-
         console.log('create new project group');
 
         const newProjectGroup = await toClient.createProjectGroup(newProjectGroupName, baseLang);
@@ -136,12 +132,12 @@ const exec = (async () => {
             await uploadFiles(newProjectId, fileFormat, translationFiles);
 
 
-
         }
         fs.unlinkSync('download-files.config');
+        console.log('done.. exit');
         process.exit(0);
     } catch (e) {
-        console.error(' error', e);
+        console.error(' ERROR : ', e);
         process.exit(0);
 
     }
